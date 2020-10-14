@@ -10,5 +10,64 @@
  * @author Your Name
  */
 public class Tavunu {
-    /* See readme.md for what to do. */
+    private String name;
+    private int pava;
+    private int birthYear;
+    
+    public Tavunu() {
+    	
+    }
+    
+    public Tavunu(String a, int x, int y) {
+    	name = a;
+    	pava = x;
+    	birthYear = y;
+    }
+    
+    public boolean setName(String a) {
+    	if(a.charAt(0)==('D')||a.charAt(0)==('T')) {
+    		name = a;
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+    
+    public String getName() {
+    	return name;
+    }
+    
+    public boolean spendPava(int amount) {
+    	if(amount>0) {
+    		pava -= amount;
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+    
+    public boolean receivePava(int amount) {
+    	if(amount>0) {
+    		pava+=amount;
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+    
+    public int getPava() {
+    	return pava;
+    }
+    
+    public int getBirthYear() {
+    	return birthYear;
+    }
+    
+    public void setBirthYear(int x) {
+    	birthYear = x;
+    }
+    
+    public String toString() {
+    	return "Name: "+name+", Amount of Pava: "+pava+", BirthYear: "+birthYear;
+    }
 }
