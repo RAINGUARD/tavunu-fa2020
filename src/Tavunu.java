@@ -7,12 +7,12 @@
  * pava -- items of status used for bargaining.
  *
  * @author Mithat Konar
- * @author Your Name
+ * @author Neil Haggerty
  */
-public class Tavunu {
+public abstract class Tavunu {
     private String name;
     private int pava;
-    private int birthYear;
+    protected int birthYear;
     
     public Tavunu() {
     	
@@ -20,11 +20,18 @@ public class Tavunu {
     
     public Tavunu(String a, int x, int y) {
     	name = a;
-    	pava = x;
-    	birthYear = y;
+    	if(y<10) {
+    		pava = 10;
+    	} else {
+    		pava = y;
+    	}
+    	birthYear = x;
     }
     
     public boolean setName(String a) {
+    	if(a.equals("")) {
+    		return false;
+    	}
     	if(a.charAt(0)==('D')||a.charAt(0)==('T')) {
     		name = a;
     		return true;
@@ -38,7 +45,7 @@ public class Tavunu {
     }
     
     public boolean spendPava(int amount) {
-    	if(amount>0) {
+    	if(amount>=0) {
     		pava -= amount;
     		return true;
     	} else {
@@ -47,7 +54,7 @@ public class Tavunu {
     }
     
     public boolean receivePava(int amount) {
-    	if(amount>0) {
+    	if(amount>=0) {
     		pava+=amount;
     		return true;
     	} else {
@@ -61,6 +68,10 @@ public class Tavunu {
     
     public int getBirthYear() {
     	return birthYear;
+    }
+    
+    public void setPava(int x) {
+    	pava = x;
     }
     
     public void setBirthYear(int x) {
