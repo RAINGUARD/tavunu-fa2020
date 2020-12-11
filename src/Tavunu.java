@@ -1,3 +1,4 @@
+import java.io.Serializable;
 
 /**
  * A tavunu is an imaginary Earth-dwelling being.
@@ -9,7 +10,7 @@
  * @author Mithat Konar
  * @author Neil Haggerty
  */
-public abstract class Tavunu {
+public abstract class Tavunu implements Serializable {
     private String name;
     private int pava;
     protected int birthYear;
